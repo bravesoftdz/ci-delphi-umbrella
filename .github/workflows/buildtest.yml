@@ -7,10 +7,12 @@ on:
 
 jobs:
   test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     container:
-      image: docker://magicxor/radstudio:xe-delphi-net3.5-ltsc2019
+      image: docker://guillaumefalourd/ritchiecli:go-1.15.8
 
     steps:
-      - name: Test unit project
-        run: echo "Teste"
+      - name: Run Commands
+        run: |
+              sudo rit -v
+              sudo go version
