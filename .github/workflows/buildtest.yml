@@ -1,8 +1,9 @@
-name: Container Workflow
+name: Build and Deploy Delphi with AWS S3
 
 on:
   push:
-    - develop
+    branches:
+      - master
     
 jobs:
   build:
