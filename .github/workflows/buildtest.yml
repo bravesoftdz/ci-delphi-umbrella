@@ -1,0 +1,20 @@
+name: Container Workflow
+
+on:
+  workflow_dispatch:
+    
+jobs:
+  build:
+    runs-on: windows-latest
+    container:
+      imagem: docker://magicxor/radstudio:xe-delphi-net3.5-ltsc2019
+
+    steps:
+      - name: Build Test
+        run: |
+          dir
+          echo "teste" >> teste.txt
+          cat teste.txt
+          del teste.txt
+          msbuild /t:build GitActionLogin.dproj
+        
