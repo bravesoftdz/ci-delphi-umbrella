@@ -10,14 +10,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Teste de visualizacao pasta
-        run: dir
       
       - name: Test unit project
-        run: |
-          mkdir c:\hostdir
-          copy .\* c:\hostdir
-          cd c:\hostdir
-          dir
-          docker run -v c:\hostdir:C:\build\app magicxor/radstudio:xe-delphi-net3.5-ltsc2019 msbuild /t:build C:\build\app\test\GitActionLoginTest.dproj
+        run: docker run -v .\:C:\build\app magicxor/radstudio:xe-delphi-net3.5-ltsc2019 msbuild /t:build C:\build\app\test\GitActionLoginTest.dproj
