@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Test unit project
-        run: build.bat test GitActionLogin.Test.dproj
+        run: .\build.bat test GitActionLoginTest.dproj
 
   build:
     needs: test
@@ -24,7 +24,7 @@ jobs:
         run: boss i
  
       - name: Build project master
-        run: build.bat .\src\application GitActionLogin.dproj
+        run: .\build.bat .\src\application GitActionLogin.dproj
 
       - name: Compact archive
         run: Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::CreatefromDirectory("$PWD\src\application\Win32\Debug", "$PWD\GitActionLogin.zip")
