@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     container:
       image: docker://magicxor/radstudio:xe-delphi-net3.5-ltsc2019
 
