@@ -7,12 +7,10 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     container:
-      image: docker://guillaumefalourd/ritchiecli:go-1.15.8
+      image: docker://magicxor/radstudio:xe-delphi-net3.5-ltsc2019
 
     steps:
-      - name: Run Commands
-        run: |
-              sudo rit -v
-              sudo go version
+      - name: Test unit project
+        run: msbuild /t:build ${{ github.repository }}\test\GitActionLoginTest.dproj
