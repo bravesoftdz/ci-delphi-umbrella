@@ -14,15 +14,15 @@ jobs:
       - name: Make changes to pull request
         run: date +%s > DadosNormal.txt
 
-      - name: Create Pull Request
+      - name: Raise PR
         uses: peter-evans/create-pull-request@v3
         with:
           branch: "auto-pr-branch"
           base: master
-          title: [Develop] Atualizacao branch develop
-          committer: ${{ github.actor }}
+          title: "demo for auto pr"
+          committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           body: |
-            Essa são informações de Atualizacao por pull request via actions
+            This is to show automatic PR actions
           token: ${{ secrets.PAT }}
           delete-branch: true
