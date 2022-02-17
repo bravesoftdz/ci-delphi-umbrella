@@ -1,22 +1,16 @@
-name: Build and Deploy Delphi with AWS S3
+name: Container Workflow
 
 on:
-  push:
-    branches:
-      - develop
-    
+  workflow_dispatch:
+
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     container:
-      imagem: docker://magicxor/radstudio:xe-delphi-net3.5-ltsc2019
+      image: docker://guillaumefalourd/ritchiecli:go-1.15.8
 
     steps:
-      - name: Build Test
+      - name: Run Commands
         run: |
-          dir
-          echo "teste" >> teste.txt
-          cat teste.txt
-          del teste.txt
-          msbuild /t:build GitActionLogin.dproj
-        
+              sudo rit -v
+              sudo go version
