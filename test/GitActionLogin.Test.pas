@@ -13,6 +13,9 @@ type
     procedure Setup;
     [TearDown]
     procedure TearDown;
+
+    [Test]
+    procedure Teste;
   end;
 
 implementation
@@ -23,6 +26,11 @@ end;
 
 procedure TGitActionLoginTest.TearDown;
 begin
+end;
+
+procedure TGitActionLoginTest.Teste;
+begin
+  Assert.AreEqual('1','1');
 end;
 
 initialization
