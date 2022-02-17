@@ -18,7 +18,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           branch: "auto-pr-branch"
-          base: master
+          base: develop
           title: "demo for auto pr"
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
