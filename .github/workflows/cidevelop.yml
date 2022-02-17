@@ -22,8 +22,8 @@ jobs:
           commit-message: Atualizacao develop
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          branch: develop
-          base: master
+          branch: master
+          base: develop
           title: '[Develop] Atualizacao develop'
           body: |
             Update report
