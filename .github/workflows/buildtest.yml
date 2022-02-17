@@ -7,9 +7,9 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
       
       - name: Test unit project
-        run: docker run -v ${{github.repository}}C:\build\app magicxor/radstudio:xe-delphi-net3.5-ltsc2019 msbuild /t:build C:\build\app\test\GitActionLoginTest.dproj
+        run: docker run -v ${{github.repository}}:C:\build\app magicxor/radstudio:xe-delphi-net3.5-ltsc2019 msbuild /t:build C:\build\app\test\GitActionLoginTest.dproj
