@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{59C52701-30BB-41B8-8A48-75FFB7EDF57A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="src\application\GitActionLogin.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="test\GitActionLoginTest.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="GitActionLogin">
+        <MSBuild Projects="src\application\GitActionLogin.dproj"/>
+    </Target>
+    <Target Name="GitActionLogin:Clean">
+        <MSBuild Projects="src\application\GitActionLogin.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GitActionLogin:Make">
+        <MSBuild Projects="src\application\GitActionLogin.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GitActionLoginTest">
+        <MSBuild Projects="test\GitActionLoginTest.dproj"/>
+    </Target>
+    <Target Name="GitActionLoginTest:Clean">
+        <MSBuild Projects="test\GitActionLoginTest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GitActionLoginTest:Make">
+        <MSBuild Projects="test\GitActionLoginTest.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="GitActionLogin;GitActionLoginTest"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="GitActionLogin:Clean;GitActionLoginTest:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="GitActionLogin:Make;GitActionLoginTest:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
