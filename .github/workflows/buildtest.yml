@@ -10,6 +10,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Teste de visualizacao pasta
         run: dir
       
       - name: Test unit project
