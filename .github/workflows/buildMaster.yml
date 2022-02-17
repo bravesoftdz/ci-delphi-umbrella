@@ -1,0 +1,67 @@
+name: Build and Deploy Delphi with AWS S3
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: [self-hosted, Windows, X64]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Test unit project
+        run: .\build.bat test GitActionLoginTest.dproj
+
+  build:
+    needs: test
+    runs-on: [self-hosted, Windows, X64]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Boss install dependecia
+        run: boss i
+ 
+      - name: Build project master
+        run: .\build.bat .\src\application GitActionLogin.dproj
+
+      - name: Compact archive
+        run: Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::CreatefromDirectory("$PWD\src\application\Win32\Debug", "$PWD\GitActionLogin.zip")
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: src\application\Win32\Debug\GitActionLogin.zip
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
+      - name: Downloads build folder
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: production
+
+      - name: Deploy AWS S3
+        run: aws s3 sync ./production s3://passaportfebrary
+
+  clear-branch-temporary:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete branch temporary
+        uses: dawidd6/action-delete-branch@v3
+        with:
+          github_token: ${{ secrets.PAT }}
+          branches: auto-pr-branch
+          suffix: -done
+
