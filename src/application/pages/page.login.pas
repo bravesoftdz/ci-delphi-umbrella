@@ -11,12 +11,12 @@ type
   TForm1 = class(TForm)
     Panel1: TPanel;
     Image1: TImage;
-    Panel2: TPanel;
+    pnlContainer: TPanel;
     StackPanel1: TStackPanel;
     Label1: TLabel;
-    Edit1: TEdit;
+    edtNome: TEdit;
     Label2: TLabel;
-    Edit2: TEdit;
+    edtSenha: TEdit;
     Button1: TButton;
     Label3: TLabel;
   private
