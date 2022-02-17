@@ -8,9 +8,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    container:
-      image: docker://magicxor/radstudio:xe-delphi-net3.5-ltsc2019
-
     steps:
+      - uses: actions/checkout@v2
+
       - name: Test unit project
-        run: msbuild /t:build ${{ github.repository }}\test\GitActionLoginTest.dproj
+        run: docker run -v .:C:\build\app magicxor/radstudio:xe-delphi-net3.5-ltsc2019 msbuild /t:build C:\build\app\test\GitActionLoginTest.dproj
