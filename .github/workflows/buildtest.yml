@@ -3,7 +3,7 @@ name: Build and Deploy Delphi with AWS S3
 on:
   push:
     branches:
-      - master
+      - develop
     
 jobs:
   build:
