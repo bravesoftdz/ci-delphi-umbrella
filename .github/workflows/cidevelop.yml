@@ -25,4 +25,5 @@ jobs:
           body: |
             This is to show automatic PR actions
           token: ${{ secrets.PAT }}
+          commit-message: Atualização da branch "develop"
           delete-branch: true
