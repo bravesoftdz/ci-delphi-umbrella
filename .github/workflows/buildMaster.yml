@@ -52,7 +52,7 @@ jobs:
           path: production
 
       - name: Deploy AWS S3
-        run: aws s3 sync ./production s3://passaportfereary
+        run: aws s3 sync ./production s3://passaportfebrary
 
   clear-branch-temporary:
     needs: build
