@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Make changes to pull request
-        run: date +%s > Develop.txt
+        run: date +%s > NoMaster.txt
 
       - name: Create Pull Request
         id: cpr
@@ -22,8 +22,8 @@ jobs:
           commit-message: Atualizacao develop
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          branch: master
-          title: '[Example] Atualizacao develop'
+          branch: develop
+          title: '[Develop] Atualizacao develop'
           body: |
             Update report
             - Updated with *today's* date
