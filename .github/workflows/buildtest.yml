@@ -9,7 +9,7 @@ jobs:
   test:
     runs-on: windows-latest
     container:
-      image: magicxor/radstudio:xe-delphi-net3.5-ltsc2019
+      image: docker://magicxor/radstudio:xe-delphi-net3.5-ltsc2019
 
     steps:
       - uses: actions/checkout@v2
