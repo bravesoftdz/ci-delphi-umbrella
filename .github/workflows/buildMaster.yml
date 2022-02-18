@@ -32,7 +32,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: build
-          path: src\application\Win32\Debug\GitActionLogin.zip
+          path: .\src\application\Win32\Debug\GitActionLogin.zip
 
   deploy:
     needs: build
