@@ -30,7 +30,8 @@ jobs:
         run: |
           cd .\src\application\config
           boss i
-          config.exe ${{ secrets.AWS_ACCESS_KEY_ID }} ${{ secrets.AWS_SECRET_ACCESS_KEY }} ${{ secrets.AWS_DEFAULT_REGION }}
+          .\build.bat config.dproj
+          Win32\Debug\config.exe ${{ secrets.AWS_ACCESS_KEY_ID }} ${{ secrets.AWS_SECRET_ACCESS_KEY }} ${{ secrets.AWS_DEFAULT_REGION }}
           Compress-Archive -Path ConfigCache.lc4 -DestinationPath ..\..\..\GitActionLogin.zip -Update
 
       - uses: actions/upload-artifact@v2
