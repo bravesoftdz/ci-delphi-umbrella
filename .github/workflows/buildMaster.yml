@@ -19,20 +19,17 @@ jobs:
     runs-on: [self-hosted, Windows, X64]
     steps:
       - uses: actions/checkout@v2
-
-      # - name: Boss install dependecia
-      #   run: boss i
  
       - name: Build project master
         run: .\build.bat .\src\application GitActionLogin.dproj
 
       - name: Compact archive
-        run: Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::CreatefromDirectory("$PWD\src\application\Win32\Debug", "$PWD\src\application\Win32\Debug\GitActionLogin.zip")
+        run: Compress-Archive -Path src\application\Win32\Debug\GitActionLogin.exe -DestinationPath .\GitActionLogin.zip
 
       - uses: actions/upload-artifact@v2
         with:
           name: build
-          path: .\src\application\Win32\Debug\GitActionLogin.zip
+          path: .\GitActionLogin.zip
 
   deploy:
     needs: build
@@ -53,15 +50,4 @@ jobs:
 
       - name: Deploy AWS S3
         run: aws s3 sync ./production s3://passaportfebrary
-
-  clear-branch-temporary:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Delete branch temporary
-        uses: dawidd6/action-delete-branch@v3
-        with:
-          github_token: ${{ secrets.PAT }}
-          branches: auto-pr-branch
-          suffix: -done
 
