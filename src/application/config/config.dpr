@@ -8,8 +8,6 @@ uses
   LocalCache4D,
   System.SysUtils;
 
-var
-  I:Integer;
 begin
   LocalCache.LoadDatabase('..\..\ConfigCache.lc4');
   LocalCache.Instance('ConfigAWS').SetItem('AWSACCOUNT',ParamStr(1));
