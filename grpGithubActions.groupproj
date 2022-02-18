@@ -9,6 +9,9 @@
         <Projects Include="test\GitActionLoginTest.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="src\application\components\PanelTransparente.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="GitActionLoginTest:Make">
         <MSBuild Projects="test\GitActionLoginTest.dproj" Targets="Make"/>
     </Target>
+    <Target Name="PanelTransparente">
+        <MSBuild Projects="src\application\components\PanelTransparente.dproj"/>
+    </Target>
+    <Target Name="PanelTransparente:Clean">
+        <MSBuild Projects="src\application\components\PanelTransparente.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PanelTransparente:Make">
+        <MSBuild Projects="src\application\components\PanelTransparente.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="GitActionLogin;GitActionLoginTest"/>
+        <CallTarget Targets="GitActionLogin;GitActionLoginTest;PanelTransparente"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="GitActionLogin:Clean;GitActionLoginTest:Clean"/>
+        <CallTarget Targets="GitActionLogin:Clean;GitActionLoginTest:Clean;PanelTransparente:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="GitActionLogin:Make;GitActionLoginTest:Make"/>
+        <CallTarget Targets="GitActionLogin:Make;GitActionLoginTest:Make;PanelTransparente:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

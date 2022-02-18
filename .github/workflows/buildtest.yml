@@ -11,11 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Test unit project
-        run: |
-          mkdir C:\hostdir
-          copy .\* C:\hostdir
-          docker run -v C:\hostdir:C:\build\app magicxor/radstudio:10.4-delphi-net4.8-ltsc2019 msbuild /t:build C:\build\app\test\GitActionLoginTest.dproj
+      # - name: Test unit project
+      #   run: |
+      #     mkdir C:\hostdir
+      #     copy .\* C:\hostdir
+      #     docker run -v C:\hostdir:C:\build\app magicxor/radstudio:10.4-delphi-net4.8-ltsc2019 msbuild /t:build C:\build\app\test\GitActionLoginTest.dproj
 
   #     - name: Buil project
   #       run: docker run -v C:\hostdir:C:\build\app magicxor/radstudio:10.4-delphi-net4.8-ltsc2019 msbuild /t:build C:\build\app\src\application\GitActionLogin.dproj
