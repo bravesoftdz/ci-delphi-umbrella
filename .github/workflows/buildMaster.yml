@@ -27,12 +27,12 @@ jobs:
         run: .\build.bat .\src\application GitActionLogin.dproj
 
       - name: Compact archive
-        run: Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::CreatefromDirectory("$PWD\src\application\Win32\Debug", "$PWD\GitActionLogin.zip")
+        run: Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::CreatefromDirectory("$PWD\src\application\Win32\Debug", "$PWD\src\application\Win32\Debug\GitActionLogin.zip")
 
       - uses: actions/upload-artifact@v2
         with:
           name: build
-          path: src\application\Win32\Debug\GitActionLogin.zip
+          path: .\src\application\Win32\Debug\GitActionLogin.zip
 
   deploy:
     needs: build
