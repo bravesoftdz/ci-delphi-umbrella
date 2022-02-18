@@ -20,8 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Boss install dependecia
-        run: boss i
+      # - name: Boss install dependecia
+      #   run: boss i
  
       - name: Build project master
         run: .\build.bat .\src\application GitActionLogin.dproj

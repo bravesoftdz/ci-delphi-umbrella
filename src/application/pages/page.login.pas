@@ -3,9 +3,19 @@ unit page.login;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.WinXPanels,
-  Vcl.Imaging.jpeg, Vcl.ExtCtrls;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.StdCtrls,
+  Vcl.WinXPanels,
+  Vcl.Imaging.jpeg,
+  Vcl.ExtCtrls;
 
 type
   TForm1 = class(TForm)
