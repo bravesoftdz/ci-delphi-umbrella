@@ -1,0 +1,22 @@
+{
+	"hash": "d41d8cd98f00b204e9800998ecf8427e",
+	"updated": "2022-02-18T18:09:55.3659258-03:00",
+	"installedModules": {
+		"https://github.com/academiadocodigo/aws4d": {
+			"name": "aws4d",
+			"version": "1.0.7",
+			"hash": "12e19c045cd2dc38cc483e2c3cd7c47b",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/academiadocodigo/localcache4d": {
+			"name": "localcache4d",
+			"version": "1.0.4",
+			"hash": "78a7747cc7f2f79822d67610672800a5",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		}
+	}
+}
