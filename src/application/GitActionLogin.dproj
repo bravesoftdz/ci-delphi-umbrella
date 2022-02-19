@@ -110,6 +110,13 @@
             <Form>pagecadastro</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\domain\models\account.pas"/>
+        <DCCReference Include="..\domain\usecases\user\authentication.pas"/>
+        <DCCReference Include="..\domain\usecases\user\create.account.pas"/>
+        <DCCReference Include="..\domain\usecases\user\delete.account.pas"/>
+        <DCCReference Include="..\domain\usecases\user\get.account.by.id.pas"/>
+        <DCCReference Include="..\domain\usecases\user\get.all.account.pas"/>
+        <DCCReference Include="..\domain\usecases\user\update.account.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
